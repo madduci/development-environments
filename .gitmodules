@@ -1,0 +1,9 @@
+[submodule "ubuntu-mingw"]
+	path = ubuntu-mingw
+	url = git@github.com:madduci/docker-ubuntu-mingw.git
+[submodule "ubuntu-clang"]
+	path = ubuntu-clang
+	url = git@github.com:madduci/docker-ubuntu-clang.git
+[submodule "ubuntu-gcc"]
+	path = ubuntu-gcc
+	url = git@github.com:madduci/docker-ubuntu-gcc.git
