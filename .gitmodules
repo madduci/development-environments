@@ -7,3 +7,6 @@
 [submodule "ubuntu-gcc"]
 	path = ubuntu-gcc
 	url = git@github.com:madduci/docker-ubuntu-gcc.git
+[submodule "ubuntu-opencv"]
+	path = ubuntu-opencv
+	url = git@github.com:madduci/docker-ubuntu-opencv.git
