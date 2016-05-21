@@ -8,5 +8,5 @@
 	path = base/cpp/ubuntu-gcc
 	url = git@github.com:madduci/docker-ubuntu-gcc.git
 [submodule "ubuntu-opencv"]
-	path = ubuntu-opencv
+	path = advanced/opencv/ubuntu-opencv
 	url = git@github.com:madduci/docker-ubuntu-opencv.git
