@@ -1,11 +1,11 @@
 [submodule "ubuntu-mingw"]
-	path = ubuntu-mingw
+	path = base/cpp/ubuntu-mingw
 	url = git@github.com:madduci/docker-ubuntu-mingw.git
 [submodule "ubuntu-clang"]
-	path = ubuntu-clang
+	path = base/cpp/ubuntu-clang
 	url = git@github.com:madduci/docker-ubuntu-clang.git
 [submodule "ubuntu-gcc"]
-	path = ubuntu-gcc
+	path = base/cpp/ubuntu-gcc
 	url = git@github.com:madduci/docker-ubuntu-gcc.git
 [submodule "ubuntu-opencv"]
 	path = ubuntu-opencv
