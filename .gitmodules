@@ -10,3 +10,6 @@
 [submodule "ubuntu-opencv"]
 	path = advanced/opencv/ubuntu-opencv
 	url = git@github.com:madduci/docker-ubuntu-opencv.git
+[submodule "base/java/ubuntu-oracle-jdk8"]
+	path = base/java/ubuntu-oracle-jdk8
+	url = git@github.com:madduci/docker-ubuntu-oracle-jdk8.git
