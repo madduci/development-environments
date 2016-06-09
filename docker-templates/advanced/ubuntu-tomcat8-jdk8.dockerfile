@@ -1,4 +1,4 @@
-FROM ubuntu-maven-jdk8
+FROM madduci/ubuntu-maven-jdk8
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 ARG tomcat_version

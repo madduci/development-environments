@@ -1,6 +1,6 @@
 # Development Environments
 
-A collection of Docker/Vagrant environments for development
+A collection of Docker/Vagrant environments for rapid development
 
 ### C++ Base Development Environments
 
@@ -15,9 +15,3 @@ A collection of Docker/Vagrant environments for development
 | Environment | Build Status |
 | ----------- | ------------ |
 | [ubuntu-oracle-jdk8](https://github.com/madduci/docker-ubuntu-oracle-jdk8) | ![Build Status](https://travis-ci.org/madduci/docker-ubuntu-oracle-jdk8.svg?branch=master) |
-
-### Advanced Development Environments
-
-| Environment | Build Status |
-| ----------- | ------------ |
-| [ubuntu-opencv](https://github.com/madduci/docker-ubuntu-opencv) | ![Build Status](https://travis-ci.org/madduci/docker-ubuntu-opencv.svg?branch=master) |
