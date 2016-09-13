@@ -12,10 +12,10 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | te
     rm -rf /var/lib/apt/lists/* && \
   	rm -rf /var/cache/oracle-jdk8-installer
 
-VOLUME ["/build", "/root/.m2/repository"]
+VOLUME ["/project", "/root/.m2/repository"]
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-WORKDIR /build
+WORKDIR /project
 
 ENTRYPOINT mvn -e clean install
