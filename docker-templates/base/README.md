@@ -13,7 +13,7 @@ Alpine-based Docker minimal image to build C/C++ projects with cmake and gcc 5
 
 To run this image (and to build your project), you can simply run:
 
-	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/alpine-cmake-gcc
+	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/alpine-cmake-cpp:gcc-5.3
 
 and it will create a subfolder called **build/** where all the CMake-generated files will be stored and then it will perform the following commands: 
 
@@ -28,7 +28,7 @@ Ubuntu-based Docker image to build C/C++ projects with cmake and gcc 5
 
 To run this image (and to build your project), you can simply run:
 
-	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-gcc
+	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-cpp:gcc-5.3
 
 and it will create a subfolder called **build/** where all the CMake-generated files will be stored and then it will perform the following commands: 
 
@@ -43,7 +43,7 @@ Ubuntu-based Docker image to build C/C++ projects with cmake and clang 3.8
 
 To run this image (and to build your project), you can simply run:
 
-	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-clang
+	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-cpp:clang-3.8
 
 and it will create a subfolder called **build/** where all the CMake-generated files will be stored and then it will perform the following commands: 
 
@@ -58,7 +58,7 @@ Ubuntu-based Docker image to build C/C++ projects with cmake and MinGW 5 and tar
 
 To run this image (and to build your project), you can simply run:
 
-	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-mingw
+	docker run -v /path/to/folder/with/CMakeLists/:/project madduci/ubuntu-cmake-cpp:mingw-5.3
 
 and it will create a subfolder called **build/** where all the CMake-generated files will be stored and then it will perform the following commands: 
 
