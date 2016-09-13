@@ -1,0 +1,12 @@
+language: python
+python:
+  - 2.7
+
+services:
+  - docker
+
+install:
+  - docker build -t madduci/docker-alpine-cpp:gcc-5.3 -f docker-templates/base/alpine-cmake-gcc.dockerfile
+
+script:
+  - docker images

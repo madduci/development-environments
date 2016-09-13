@@ -1,6 +1,5 @@
 #!/bin/bash
-mkdir -p /build/build
-cd /build/build
+mkdir -p /project/build
+cd /project/build
 cmake "$@" .. 
-make
-make install
+cmake --build .

@@ -52,18 +52,6 @@ and it will create a subfolder called **build/** where all the CMake-generated f
 
 to generate binaries and install them
 
-## ubuntu-maven-jdk7
-
-Ubuntu-based Docker image to build Java projects with maven and Oracle JDK7
-
-To run this image (and to build your project), you can simply run:
-
-	docker run -v /path/to/folder/with/pom.xml/:/build madduci/ubuntu-maven-jdk7
-
-and it will create a subfolder called **target** where all the maven-related files and the final *.jar / *.war will be archived.
-
-Optionally, also the maven repository folder could be mounted on host (/root/.m2/repository)
-
 ## ubuntu-maven-jdk8
 
 Ubuntu-based Docker image to build Java projects with maven and Oracle JDK8
