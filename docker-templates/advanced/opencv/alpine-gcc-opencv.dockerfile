@@ -1,4 +1,4 @@
-FROM madduci/docker-cpp:gcc-5.3
+FROM madduci/docker-alpine-cpp:gcc-5.3
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 ADD ./scripts/alpine_opencv.sh /opencv.sh
