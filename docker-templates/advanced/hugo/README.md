@@ -1,6 +1,6 @@
 # docker-hugo
 
-Hugo Docker container, powered by Debian Linux and Hugo latest release available at [GitHub repository]https://github.com/spf13/hugo/releases).
+Hugo Docker container, powered by Debian Linux and Hugo latest release available at [GitHub repository](https://github.com/spf13/hugo/releases).
 
 To run this image (and to build your pages), you can simply run:
 
