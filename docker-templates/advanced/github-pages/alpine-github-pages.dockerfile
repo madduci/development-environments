@@ -21,10 +21,10 @@ RUN apk update && \
         ruby-irb \
         ruby-bundler \
         ruby-dev \
-    	  glib-dev \
+    	glib-dev \
         libc-dev \
         libffi-dev \
-        libxslt-dev && \ 
+        libxslt-dev && \
     echo 'gem: --no-document' > /etc/gemrc && \
     gem install --no-ri --no-rdoc nokogiri && \
     gem install --no-ri --no-rdoc octopress && \
