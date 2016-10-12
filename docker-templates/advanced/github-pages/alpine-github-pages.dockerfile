@@ -36,6 +36,7 @@ RUN apk update && \
     gem install --no-ri --no-rdoc jekyll-feed && \
     gem install --no-ri --no-rdoc jekyll-watch && \
     gem install --no-ri --no-rdoc jekyll-sitemap && \
+    bundle clean --force && \
     apk del gcc g++ make && \
     rm -rf /var/cache/apk/*
 
