@@ -14,7 +14,7 @@ RUN apk update && \
         make \
         curl \
         bison \
-        nodejs \
+        ca-certificates \
         tzdata \
         ruby \
         ruby-rdoc \
@@ -23,18 +23,11 @@ RUN apk update && \
         ruby-dev \
     	glib-dev \
         libc-dev \
-        libffi-dev \
-        libxslt-dev && \
-    echo 'gem: --no-document' > /etc/gemrc && \
-    gem install --no-ri --no-rdoc jekyll && \
-    gem install --no-ri --no-rdoc rouge && \
-    gem install --no-ri --no-rdoc nokogiri && \
-    gem install --no-ri --no-rdoc octopress && \
+        && \       
+    apk upgrade --available && \ 
+    echo 'gem: --no-document' > /etc/gemrc && \ 
     gem install --no-ri --no-rdoc github-pages && \
-    gem install --no-ri --no-rdoc jekyll-gist && \
-    gem install --no-ri --no-rdoc jekyll-watch && \
-    bundle clean --force && \
-    apk del gcc g++ make curl && \
+    apk del gcc g++ binutils bison perl nodejs make curl && \
     rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["jekyll"]
