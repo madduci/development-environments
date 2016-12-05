@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.10
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 VOLUME ["/project"]
@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install gcc-mingw-w64 g++-mingw-w64 cmake -y  && \
     apt-get clean autoclean && \
-    apt-get autoremove -y 
+    apt-get autoremove -y
 
 ADD ./scripts/cmake-build.sh /build.sh
 ADD ./cmake_toolchains/mingw.cmake /mingw.cmake

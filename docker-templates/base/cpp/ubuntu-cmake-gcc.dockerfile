@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.10
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 VOLUME ["/project"]
