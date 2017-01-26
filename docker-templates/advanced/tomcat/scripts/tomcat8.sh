@@ -4,7 +4,7 @@
 apt-get update && apt-get install curl -y
 
 #Set default Tomcat version
-TOMCAT_VERSION=8.0.35
+TOMCAT_VERSION=8.0.41
 
 #detect if a defined version of tomcat was specified
 if [ ! -z "$1" ]; then

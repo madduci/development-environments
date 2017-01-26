@@ -6,9 +6,10 @@ services:
   - docker
 
 install:
-  - docker build -t madduci/docker-alpine-cpp:gcc-6.2 -f docker-templates/base/cpp/alpine-cmake-gcc.dockerfile docker-templates/base/cpp
-  - docker build -t madduci/docker-ubuntu-cpp:gcc-6.2 -f docker-templates/base/cpp/ubuntu-cmake-gcc.dockerfile docker-templates/base/cpp
-  - docker build -t madduci/docker-ubuntu-cpp:mingw-19.1 -f docker-templates/base/cpp/ubuntu-cmake-mingw.dockerfile docker-templates/base/cpp
+  - docker build -t madduci/docker-alpine-cpp:gcc-6 -f docker-templates/base/cpp/alpine-cmake-gcc.dockerfile docker-templates/base/cpp
+  - docker build -t madduci/docker-ubuntu-cpp:gcc-6 -f docker-templates/base/cpp/ubuntu-cmake-gcc.dockerfile docker-templates/base/cpp
+  - docker build -t madduci/docker-ubuntu-cpp:mingw-5 -f docker-templates/base/cpp/ubuntu-cmake-mingw.dockerfile docker-templates/base/cpp
+  - docker build -t madduci/docker-ubuntu-cpp:clang-3.9 -f docker-templates/base/cpp/ubuntu-cmake-clang.dockerfile docker-templates/base/cpp
   - docker build -t madduci/docker-ubuntu-cpp:clang-3.9 -f docker-templates/base/cpp/ubuntu-cmake-clang.dockerfile docker-templates/base/cpp
 
 script:

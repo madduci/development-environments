@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.10
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list && \

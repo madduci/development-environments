@@ -1,4 +1,4 @@
-FROM madduci/docker-ubuntu-cpp:gcc-5.3
+FROM madduci/docker-ubuntu-cpp:gcc-6
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 COPY ./scripts/ubuntu_opencv.sh /opencv.sh

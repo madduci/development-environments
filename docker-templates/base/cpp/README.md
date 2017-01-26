@@ -1,6 +1,6 @@
 # Docker C++ Templates
 
-The C++ images are based on Ubuntu and Alpine Linux, using different compilers:
+The C++ images are based on Ubuntu Linux, using different compilers:
 
 * gcc
 * mingw
@@ -23,18 +23,18 @@ to compile your project.
 
 The following images are available:
 
-## madduci/docker-alpine-cpp
+## madduci/docker-alpine-cpp:gcc-6
 
-Alpine-based Docker minimal image to build C/C++ projects with cmake and gcc 5
+Alpine-based Docker minimal image to build C/C++ projects with cmake and gcc 6
 
-## madduci/docker-ubuntu-cpp:gcc-5.3
+## madduci/docker-ubuntu-cpp:gcc-6
 
-Ubuntu-based Docker image to build C/C++ projects with cmake and gcc 5
+Ubuntu-based Docker image to build C/C++ projects with cmake and gcc 6
 
-## madduci/docker-ubuntu-cpp:mingw-5.3
+## madduci/docker-ubuntu-cpp:mingw-5
 
 Ubuntu-based Docker image to build C/C++ projects with cmake and MinGW 5 and target Windows platform
 
-## madduci/docker-ubuntu-cpp:clang-3.8
+## madduci/docker-ubuntu-cpp:clang-3.9
 
-Ubuntu-based Docker image to build C/C++ projects with cmake and clang 3.8
+Ubuntu-based Docker image to build C/C++ projects with cmake and clang 3.9
