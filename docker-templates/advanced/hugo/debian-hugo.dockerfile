@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:9
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 VOLUME /site
@@ -8,7 +8,7 @@ EXPOSE 1313
 WORKDIR /site
 
 ENV HUGO_VERSION 0.24
-ENV HUGO_BINARY hugo_${HUGO_VERSION}-64bit.deb
+ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
 
 # Install pygments (for syntax highlighting)
 RUN apt-get -qq update \
