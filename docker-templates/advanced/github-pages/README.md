@@ -1,6 +1,6 @@
 # alpine-github-pages
 
-GitHub-Pages Docker container, powered by Alpine Linux and Jekyll 3.3.1 installed via the [github-pages gem](https://github.com/github/pages-gem).
+GitHub-Pages Docker container, powered by Alpine Linux and Jekyll installed via the [github-pages gem](https://github.com/github/pages-gem).
 
 Based on [andredumas/github-pages](https://github.com/andredumas/docker-github-pages) project, optimized to fetch latest packages and make it lighter
 

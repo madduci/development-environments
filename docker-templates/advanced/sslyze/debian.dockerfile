@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:9
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 RUN apt-get update && \
