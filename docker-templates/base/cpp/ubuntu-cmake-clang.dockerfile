@@ -1,15 +1,17 @@
 FROM ubuntu:17.04
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
-VOLUME ["/project"]
-WORKDIR ["/project"]
+VOLUME "/project"
+WORKDIR "/project"
 
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
-    apt-get install cmake clang-3.9 -y  && \
+    apt-get install cmake clang-3.9 wget -y  && \
     apt-get clean autoclean && \
-    apt-get autoremove -y
-    
+    apt-get autoremove -y && \
+    wget -O /tmp/conan.deb -L https://github.com/conan-io/conan/releases/download/0.25.1/conan-ubuntu-64_0_25_1.deb && \
+    dpkg -i /tmp/conan.deb
+
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.9 100 \
     --slave /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 \
     --slave /usr/bin/clang-check clang-check /usr/bin/clang-check-3.9 \
