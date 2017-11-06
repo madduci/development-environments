@@ -4,8 +4,6 @@ MAINTAINER Michele Adduci <info@micheleadduci.net>
 ENV JDK_VERSION_MAJOR=8 \
     JDK_VERSION_MINOR=151 \
     JDK_VERSION_PATCH=b12 \
-    JIGSAW_VERSION_MAJOR=9.0.1 \
-    JIGSAW_VERSION_PATCH=11 \
     GRADLE_VERSION=3.1 \
     ANT_VERSION=1.10.1 \
     CMAKE_VERSION=3.9 \
@@ -50,7 +48,8 @@ RUN echo "Installing required packages" \
       libudev-dev:i386 \
       x11proto-core-dev:i386 \
       x11proto-xf86vidmode-dev:i386 \
-      pkg-config:i386 \
+      pkg-config:i386  \
+    && apt-get install -qq -y --force-yes --no-install-recommends \
       autoconf \
       cpio \
       file \
@@ -74,6 +73,9 @@ RUN echo "Installing required packages" \
       gcc-4.9-multilib \
       g++-4.9-multilib \
       ruby \
+    && echo "Setting gcc 4.9 as default compiler" \
+    && ln -s /usr/bin/gcc-4.9 /usr/bin/gcc \
+    && ln -s /usr/bin/g++-4.9 /usr/bin/g++ \
     && echo "Performing cleanup" \
     && apt-get -q clean -y \
     && apt-get autoclean \
@@ -84,13 +86,6 @@ RUN echo "Installing required packages" \
 RUN echo "Setting Oracle Java 8 (Required by OpenJDK9)" \
     && curl -o /tmp/jdk${JDK_VERSION_MAJOR}.tar.gz -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/${JDK_VERSION_MAJOR}u${JDK_VERSION_MINOR}-${JDK_VERSION_PATCH}/e758a0de34e24606bca991d704f6dcbf/jdk-${JDK_VERSION_MAJOR}u${JDK_VERSION_MINOR}-linux-i586.tar.gz \
     && tar -xzf /tmp/jdk${JDK_VERSION_MAJOR}.tar.gz -C /opt/ \
-    && echo "Setting Oracle Java 9 (Required by OpenJFX9)" \
-    && curl -o /tmp/jdk${JIGSAW_VERSION_MAJOR}.tar.gz -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/${JIGSAW_VERSION_MAJOR}+${JIGSAW_VERSION_PATCH}/jdk-${JIGSAW_VERSION_MAJOR}_linux-x64_bin.tar.gz \
-    && tar -xzf /tmp/jdk${JIGSAW_VERSION_MAJOR}.tar.gz -C /opt/ \
-    && update-alternatives --remove  java /usr/bin/java \
-    && update-alternatives --install /usr/bin/java java /opt/jdk-${JIGSAW_VERSION_MAJOR}/bin/java 1 \
-    && update-alternatives --install /usr/bin/jlink jlink /opt/jdk-${JIGSAW_VERSION_MAJOR}/bin/jlink 1 \
-    && update-alternatives --install /usr/bin/javapackager javapackager /opt/jdk-${JIGSAW_VERSION_MAJOR}/bin/javapackager 1 \
     && echo "Installing Gradle" \
     && wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
     && unzip gradle-${GRADLE_VERSION}-bin.zip -d /opt \

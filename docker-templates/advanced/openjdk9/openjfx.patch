@@ -1,0 +1,123 @@
+diff -r c734b008e3e8 build.gradle
+--- a/build.gradle	Mon Jul 31 04:14:09 2017 -0700
++++ b/build.gradle	Mon Nov 06 09:42:58 2017 +0000
+@@ -271,8 +271,8 @@
+ // These variables indicate what platform is running the build. Is
+ // this build running on a Mac, Windows, or Linux machine? 32 or 64 bit?
+ ext.OS_NAME = System.getProperty("os.name").toLowerCase()
+-ext.OS_ARCH = System.getProperty("os.arch")
+-ext.IS_64 = OS_ARCH.toLowerCase().contains("64")
++ext.OS_ARCH = "i386" //System.getProperty("os.arch")
++ext.IS_64 = false //OS_ARCH.toLowerCase().contains("64")
+ ext.IS_MAC = OS_NAME.contains("mac") || OS_NAME.contains("darwin")
+ ext.IS_WINDOWS = OS_NAME.contains("windows")
+ ext.IS_LINUX = OS_NAME.contains("linux")
+@@ -525,7 +525,7 @@
+ def relSuffix = ""
+ def relOpt = ""
+ if (HUDSON_JOB_NAME == "not_hudson") {
+-    relSuffix = "-internal"
++    relSuffix = ""
+     relOpt = "-${buildTimestamp}"
+ } else {
+     relSuffix = jfxReleaseSuffix
+@@ -1365,7 +1365,7 @@
+ // Task to verify the minimum level of Java needed to build JavaFX
+ task verifyJava() {
+     doLast {
+-        def status = compareJdkVersion(jdkVersion, jfxBuildJdkVersionMin);
++        /*def status = compareJdkVersion(jdkVersion, jfxBuildJdkVersionMin);
+         if (status < 0) {
+             fail("java version mismatch: JDK version (${jdkVersion}) < minimum version (${jfxBuildJdkVersionMin})")
+         } else if (status == 0) {
+@@ -1374,7 +1374,7 @@
+             if (buildNum != 0 && buildNum < minBuildNum) {
+                 fail("JDK build number ($buildNum) < minimum build number ($minBuildNum)")
+             }
+-        }
++        }*/
+     }
+ }
+ 
+diff -r c734b008e3e8 build.properties
+--- a/build.properties	Mon Jul 31 04:14:09 2017 -0700
++++ b/build.properties	Mon Nov 06 10:54:41 2017 +0000
+@@ -30,12 +30,12 @@
+ ##############################################################################
+ 
+ # UPDATE THE FOLLOWING VALUES FOR A NEW RELEASE OR MILESTONE
+-# Note: The expected value for suffix is one of [-alpha, -beta, -ea] 
++# Note: The expected value for suffix is one of [-alpha, -beta, -ea]
+ # Note: For fcs builds the suffix should be blank
+-jfx.release.suffix=
++jfx.release.suffix=-b01
+ jfx.release.major.version=9
+ jfx.release.minor.version=0
+-jfx.release.security.version=0
++jfx.release.security.version=1
+ jfx.release.patch.version=0
+ 
+ # Note: The release version is now calculated in build.gradle as the
+@@ -67,4 +67,4 @@
+ ##############################################################################
+ 
+ jfx.build.jdk.version.min=9
+-jfx.build.jdk.buildnum.min=165
++jfx.build.jdk.buildnum.min=b01
+diff -r c734b008e3e8 buildSrc/linux.gradle
+--- a/buildSrc/linux.gradle	Mon Jul 31 04:14:09 2017 -0700
++++ b/buildSrc/linux.gradle	Mon Nov 06 10:54:53 2017 +0000
+@@ -45,9 +45,7 @@
+         "-fno-strict-aliasing", "-fPIC", "-fno-omit-frame-pointer", // optimization flags
+         "-Wextra", "-Wall", "-Wformat-security", "-Wno-unused", "-Wno-parentheses", "-Werror=implicit-function-declaration"] // warning flags
+ 
+-if (!IS_64) {
+-    commonFlags += "-m32"
+-}
++commonFlags += "-m32"
+ 
+ // Specify the compilation parameters and link parameters
+ def ccFlags = [
+@@ -128,14 +126,14 @@
+     { propFile ->
+         ByteArrayOutputStream results = new ByteArrayOutputStream();
+         exec {
+-            commandLine "pkg-config", "--cflags", "pangoft2"
++            commandLine "pkg-config", "--cflags", "pangocairo"
+             standardOutput = results
+         }
+         propFile << "cflags=" << results.toString().trim() << "\n";
+ 
+         results = new ByteArrayOutputStream();
+         exec {
+-            commandLine "pkg-config", "--libs", "pangoft2"
++            commandLine "pkg-config", "--libs", "pangocairo"
+             standardOutput = results
+         }
+         propFile << "libs=" << results.toString().trim();
+@@ -243,21 +241,15 @@
+ LINUX.launcher.ccFlags = ["-Wextra", "-Wformat", "-Wformat-security", "-DJAVAARCH=\"$OS_ARCH\"", "-I$JDK_HOME/include", "-I$JDK_HOME/include/linux", "-c"]
+ LINUX.launcher.linker = linker
+ LINUX.launcher.linkFlags = ["-ldl"]
+-if (!IS_64) {
+-    LINUX.launcher.ccFlags += "-m32"
+-    LINUX.launcher.linkFlags += "-m32"
+-}
+-
++LINUX.launcher.ccFlags += "-m32"
++LINUX.launcher.linkFlags += "-m32"
+ LINUX.launcherlibrary = [:]
+ LINUX.launcherlibrary.compiler = compiler
+ LINUX.launcherlibrary.ccFlags = ["-Wextra", "-Wformat", "-Wformat-security", "-DJAVAARCH=\"$OS_ARCH\"", "-I$JDK_HOME/include", "-I$JDK_HOME/include/linux", "-c", "-fPIC"]
+ LINUX.launcherlibrary.linker = linker
+ LINUX.launcherlibrary.linkFlags = ["-ldl", "-lpthread", "-shared"]
+-if (!IS_64) {
+-    LINUX.launcherlibrary.ccFlags += "-m32"
+-    LINUX.launcherlibrary.linkFlags += "-m32"
+-}
+-
++LINUX.launcherlibrary.ccFlags += "-m32"
++LINUX.launcherlibrary.linkFlags += "-m32"
+ LINUX.iio = [:]
+ LINUX.iio.nativeSource = [
+     file("${project("graphics").projectDir}/src/main/native-iio"),
