@@ -15,6 +15,4 @@ For newer versions, please check [my profile](https://github.com/madduci?tab=rep
 * Ubuntu with CMake and mingw 19.1
 * Ubuntu with CMake and clang 3.9
 
-### Java Development Environments
-
-* Ubuntu with Maven and Oracle Jdk 8
+[**HERE**](https://github.com/madduci/docker-linux-cpp) you can find a more complete docker image, offering g++ and clang in different versions, to help you building/testing your software under different conditions
