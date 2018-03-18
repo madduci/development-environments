@@ -1,4 +1,4 @@
-FROM debian:9
+FROM debian:stable-slim
 MAINTAINER Michele Adduci <info@micheleadduci.net>
 
 RUN apt-get update && \
